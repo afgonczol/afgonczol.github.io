@@ -67,8 +67,12 @@
   .board b { display:grid; place-items:center; font-size:1.5rem; line-height:1; font-weight:400; }
   .board b:nth-child(odd) { background:#e8d9b5; color:#222; }
   .board b:nth-child(even) { background:#7c9a6a; color:#222; }
-  .board.alt b:nth-child(odd) { background:#7c9a6a; }
-  .board.alt b:nth-child(even) { background:#e8d9b5; }
+  .board b:nth-child(n+7):nth-child(-n+12):nth-child(odd),
+  .board b:nth-child(n+19):nth-child(-n+24):nth-child(odd),
+  .board b:nth-child(n+31):nth-child(-n+36):nth-child(odd) { background:#7c9a6a; }
+  .board b:nth-child(n+7):nth-child(-n+12):nth-child(even),
+  .board b:nth-child(n+19):nth-child(-n+24):nth-child(even),
+  .board b:nth-child(n+31):nth-child(-n+36):nth-child(even) { background:#e8d9b5; }
 
   /* boggle thumbnail */
   .dice { display:grid; grid-template-columns:repeat(4,1fr); gap:6px; transform:rotate(3deg); }
@@ -76,6 +80,15 @@
     background:#f4ecd8; color:#2b2b2b; font-size:1.2rem; font-weight:700;
     box-shadow:0 4px 10px -3px rgba(0,0,0,.45); }
   .dice b.hit { background:var(--accent2); color:#06241f; }
+
+  /* sudoku thumbnail */
+  .sudoku { display:grid; grid-template-columns:repeat(9,1fr); width:150px; height:150px; border-radius:6px;
+    overflow:hidden; background:#f4f1ea; border:2px solid #2b2b2b; transform:rotate(-3deg);
+    box-shadow:0 10px 30px -10px rgba(0,0,0,.5); }
+  .sudoku b { display:grid; place-items:center; font-size:.8rem; font-weight:600; color:#2b2b2b;
+    border:.5px solid #c9c4b6; }
+  .sudoku b:nth-child(9n+3), .sudoku b:nth-child(9n+6) { border-right:1.5px solid #2b2b2b; }
+  .sudoku b:nth-child(n+19):nth-child(-n+27), .sudoku b:nth-child(n+46):nth-child(-n+54) { border-bottom:1.5px solid #2b2b2b; }
 
   footer { margin:5rem 0 0; padding:2rem 0 3rem; border-top:1px solid var(--border);
     display:flex; flex-wrap:wrap; justify-content:space-between; gap:1rem; color:var(--muted); font-size:.9rem; }
@@ -129,6 +142,28 @@
           <p>Practice Boggle with timed games on 4×4 to 6×6 boards, track your stats, and explore which words come up most often.</p>
           <div class="tags"><span>Word game</span><span>Stats</span><span>Training</span></div>
           <span class="visit">Start training <i>→</i></span>
+        </div>
+      </a>
+
+      <a class="card" href="https://afgonczol.github.io/sudoku-master/">
+        <div class="thumb" aria-hidden="true">
+          <div class="sudoku">
+            <b>5</b><b>3</b><b></b><b></b><b>7</b><b></b><b></b><b></b><b></b>
+            <b>6</b><b></b><b></b><b>1</b><b>9</b><b>5</b><b></b><b></b><b></b>
+            <b></b><b>9</b><b>8</b><b></b><b></b><b></b><b></b><b>6</b><b></b>
+            <b>8</b><b></b><b></b><b></b><b>6</b><b></b><b></b><b></b><b>3</b>
+            <b>4</b><b></b><b></b><b>8</b><b></b><b>3</b><b></b><b></b><b>1</b>
+            <b>7</b><b></b><b></b><b></b><b>2</b><b></b><b></b><b></b><b>6</b>
+            <b></b><b>6</b><b></b><b></b><b></b><b></b><b>2</b><b>8</b><b></b>
+            <b></b><b></b><b></b><b>4</b><b>1</b><b>9</b><b></b><b></b><b>5</b>
+            <b></b><b></b><b></b><b></b><b>8</b><b></b><b></b><b>7</b><b>9</b>
+          </div>
+        </div>
+        <div class="body">
+          <h3>Sudoku Master</h3>
+          <p>Full-featured Sudoku with brutally hard puzzles and a logical hint coach. Works offline, no dependencies.</p>
+          <div class="tags"><span>Sudoku</span><span>Hint coach</span><span>Offline</span></div>
+          <span class="visit">Solve a puzzle <i>→</i></span>
         </div>
       </a>
 
